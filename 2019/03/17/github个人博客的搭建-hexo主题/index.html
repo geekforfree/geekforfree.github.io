@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://geekforfree.github.io">
-  <title>about | 懒羊羊的肥宅乐园</title>
+  <title>github个人博客的搭建+hexo主题 | 懒羊羊的肥宅乐园</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="geeker-lazysheep">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://geekforfree.github.io/about/index.html">
+  <meta name="description" content="第一次用github+hexo搭建blog，做个小记录">
+<meta name="keywords" content="hexo,blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="github个人博客的搭建+hexo主题">
+<meta property="og:url" content="http://geekforfree.github.io/2019/03/17/github个人博客的搭建-hexo主题/index.html">
 <meta property="og:site_name" content="懒羊羊的肥宅乐园">
-<meta property="og:description" content="geeker-lazysheep">
+<meta property="og:description" content="第一次用github+hexo搭建blog，做个小记录">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-14T15:10:22.525Z">
+<meta property="og:image" content="https://i.imgur.com/MJvpMRd.png">
+<meta property="og:image" content="https://i.imgur.com/1kuZH0Y.png">
+<meta property="og:updated_time" content="2019-03-17T12:29:20.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="geeker-lazysheep">
+<meta name="twitter:title" content="github个人博客的搭建+hexo主题">
+<meta name="twitter:description" content="第一次用github+hexo搭建blog，做个小记录">
+<meta name="twitter:image" content="https://i.imgur.com/MJvpMRd.png">
   
     <link rel="alternative" href="/atom.xml" title="懒羊羊的肥宅乐园" type="application/atom+xml">
   
@@ -153,27 +157,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-github个人博客的搭建-hexo主题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      about
+      github个人博客的搭建+hexo主题
     </h1>
   
 
         
-        <a href="/about/index.html" class="archive-article-date">
-  	<time datetime="2019-03-14T15:10:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-14</time>
+        <a href="/2019/03/17/github个人博客的搭建-hexo主题/" class="archive-article-date">
+  	<time datetime="2019-03-17T09:00:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>第一次用github+hexo 搭建blog,做个小记录</p>
+<a id="more"></a>
+<ol>
+<li><p>建立一个以自己帐户名为名的仓库</p>
+<p> <img src="https://i.imgur.com/MJvpMRd.png" alt></p>
+</li>
+<li><p>安装git</p>
+</li>
+<li><p>安装node.js并且配置好环境</p>
+<p> <img src="https://i.imgur.com/1kuZH0Y.png" alt></p>
+</li>
+<li><p>利用git bash 安装hexo</p>
+<p> <code>1. 输入 npm install hexo -g</code></p>
+</li>
+<li><p>初始化文件夹</p>
+<pre><code>1. hexo init blog
+2. npm install 安装所需要的组件
+</code></pre></li>
+<li><p>体验hexo</p>
+<p> <code>1. hexo g</code></p>
+</li>
+<li><p>开启服务</p>
+<p> <code>1. hexo s</code></p>
+</li>
+<li><p>hexo与github联系</p>
+<pre><code>1.     Git config  --global user.name &quot;名字&quot;
+2.      Git config --global user.email &quot;邮箱&quot;
+3.       进入  ~/.ssh
+4.       输入 ssh-keygen -t rsa -C &quot;邮箱&quot;, 生成密钥
+5.       ssh-keygen -t rsa -C&quot;geekforfree961228@gmail.com&quot; 
+6.       添加密钥到 ssh-agent  【eval &quot;$(ssh-agent-s)&quot;】
+7.        再输入 ssh-add ~/.ssh/id_rsa, 添加生成的ssh key 到 ssh-agent将 ~/.ssh/id_rsa.pub 中的密钥添加到 github中 
+</code></pre></li>
+<li><p>输入 <code>ssh -T git@github.com</code></p>
+</li>
+<li><p>配置Deployment，在其文件夹中，找到_config.yml文件，修改repo值（在末尾）</p>
+</li>
+<li><p>安装拓展部署文章</p>
+<ol>
+<li>Npm install hexo-deployer-git –save</li>
+<li>Hexo d -g 生成及部署</li>
+</ol>
+</li>
+</ol>
+
       
 
       
@@ -212,7 +260,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/通用//" class="article-tag-list-link color3">通用</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -262,7 +336,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://geekforfree.github.io/about/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://geekforfree.github.io/2019/03/17/github个人博客的搭建-hexo主题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -337,7 +411,7 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
