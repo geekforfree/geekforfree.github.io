@@ -18,7 +18,12 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.imgur.com/MJvpMRd.png">
 <meta property="og:image" content="https://i.imgur.com/1kuZH0Y.png">
-<meta property="og:updated_time" content="2019-03-17T12:29:20.615Z">
+<meta property="og:image" content="https://i.imgur.com/hVWnHyI.png">
+<meta property="og:image" content="https://i.imgur.com/91xWL2m.png">
+<meta property="og:image" content="https://i.imgur.com/c39jYwI.png">
+<meta property="og:image" content="https://i.imgur.com/YbMHM9n.png">
+<meta property="og:image" content="https://i.imgur.com/L8g2fBJ.png">
+<meta property="og:updated_time" content="2019-03-17T12:52:00.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github个人博客的搭建+hexo主题">
 <meta name="twitter:description" content="第一次用github+hexo搭建blog，做个小记录">
@@ -181,35 +186,44 @@
 <a id="more"></a>
 <ol>
 <li><p>建立一个以自己帐户名为名的仓库</p>
-<p> <img src="https://i.imgur.com/MJvpMRd.png" alt></p>
+<p> <img src="https://i.imgur.com/MJvpMRd.png" alt="1"></p>
 </li>
 <li><p>安装git</p>
 </li>
 <li><p>安装node.js并且配置好环境</p>
-<p> <img src="https://i.imgur.com/1kuZH0Y.png" alt></p>
+<p> <img src="https://i.imgur.com/1kuZH0Y.png" alt="2"></p>
 </li>
 <li><p>利用git bash 安装hexo</p>
 <p> <code>1. 输入 npm install hexo -g</code></p>
+<p> <img src="https://i.imgur.com/hVWnHyI.png" alt="3"></p>
 </li>
 <li><p>初始化文件夹</p>
 <pre><code>1. hexo init blog
+
 2. npm install 安装所需要的组件
-</code></pre></li>
+</code></pre><p> <img src="https://i.imgur.com/91xWL2m.png" alt="4"></p>
+</li>
 <li><p>体验hexo</p>
 <p> <code>1. hexo g</code></p>
+<p> <img src="https://i.imgur.com/c39jYwI.png" alt="5"></p>
 </li>
 <li><p>开启服务</p>
 <p> <code>1. hexo s</code></p>
+<p> <img src="https://i.imgur.com/YbMHM9n.png" alt></p>
 </li>
+</ol>
+<ol start="8">
 <li><p>hexo与github联系</p>
 <pre><code>1.     Git config  --global user.name &quot;名字&quot;
 2.      Git config --global user.email &quot;邮箱&quot;
 3.       进入  ~/.ssh
 4.       输入 ssh-keygen -t rsa -C &quot;邮箱&quot;, 生成密钥
-5.       ssh-keygen -t rsa -C&quot;geekforfree961228@gmail.com&quot; 
+5.       ssh-keygen -t rsa -C&quot;邮箱&quot; 
+![](https://i.imgur.com/rL7x2Tg.png)
 6.       添加密钥到 ssh-agent  【eval &quot;$(ssh-agent-s)&quot;】
 7.        再输入 ssh-add ~/.ssh/id_rsa, 添加生成的ssh key 到 ssh-agent将 ~/.ssh/id_rsa.pub 中的密钥添加到 github中 
-</code></pre></li>
+</code></pre><p> <img src="https://i.imgur.com/L8g2fBJ.png" alt></p>
+</li>
 <li><p>输入 <code>ssh -T git@github.com</code></p>
 </li>
 <li><p>配置Deployment，在其文件夹中，找到_config.yml文件，修改repo值（在末尾）</p>
