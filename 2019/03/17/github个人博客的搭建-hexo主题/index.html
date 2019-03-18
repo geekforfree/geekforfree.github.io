@@ -22,8 +22,9 @@
 <meta property="og:image" content="https://i.imgur.com/91xWL2m.png">
 <meta property="og:image" content="https://i.imgur.com/c39jYwI.png">
 <meta property="og:image" content="https://i.imgur.com/YbMHM9n.png">
+<meta property="og:image" content="https://i.imgur.com/rL7x2Tg.png">
 <meta property="og:image" content="https://i.imgur.com/L8g2fBJ.png">
-<meta property="og:updated_time" content="2019-03-17T12:52:00.972Z">
+<meta property="og:updated_time" content="2019-03-18T01:09:33.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github个人博客的搭建+hexo主题">
 <meta name="twitter:description" content="第一次用github+hexo搭建blog，做个小记录">
@@ -225,19 +226,21 @@
 3.       进入  ~/.ssh
 4.       输入 ssh-keygen -t rsa -C &quot;邮箱&quot;, 生成密钥
 5.       ssh-keygen -t rsa -C&quot;邮箱&quot; 
-![](https://i.imgur.com/rL7x2Tg.png)
 6.       添加密钥到 ssh-agent  【eval &quot;$(ssh-agent-s)&quot;】
 7.        再输入 ssh-add ~/.ssh/id_rsa, 添加生成的ssh key 到 ssh-agent将 ~/.ssh/id_rsa.pub 中的密钥添加到 github中 
-</code></pre><p> <img src="https://i.imgur.com/L8g2fBJ.png" alt></p>
-</li>
+</code></pre></li>
+</ol>
+<p><img src="https://i.imgur.com/rL7x2Tg.png" alt></p>
+<p><img src="https://i.imgur.com/L8g2fBJ.png" alt></p>
+<ol start="9">
 <li><p>输入 <code>ssh -T git@github.com</code></p>
 </li>
-<li><p>配置Deployment，在其文件夹中，找到_config.yml文件，修改repo值（在末尾）</p>
+<li><p>配置Deployment，在其<strong>根目录文件夹</strong>中，找到 <strong>_config.yml</strong> 文件，修改<strong>repo</strong>值（在末尾）</p>
 </li>
 <li><p>安装拓展部署文章</p>
 <ol>
-<li>Npm install hexo-deployer-git –save</li>
-<li>Hexo d -g 生成及部署</li>
+<li>npm install hexo-deployer-git –save</li>
+<li>hexo d -g 生成及部署</li>
 </ol>
 </li>
 </ol>
@@ -647,5 +650,5 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":70,"height":150},"mobile":{"show":true},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":70,"height":150},"mobile":{"show":true},"log":false});</script></body>
 </html>
