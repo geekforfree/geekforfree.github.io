@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://geekforfree.github.io/To-do/index.html">
 <meta property="og:site_name" content="懒羊羊的肥宅乐园">
 <meta property="og:description" content="这里只是个填坑的地方  目录穿越漏洞的复现 永恒之蓝漏洞的复现">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-03-18T01:02:37.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="To Do List">
@@ -54,15 +54,15 @@
 		  <h1 class="header-author"><a href="/">懒羊羊</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">你看那个人，好像条狗欸</p>
+		<p class="header-subtitle">你看，那个人好像条狗欸</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">HOME</a></li>
 	        
-				<li><a href="/archives/index.html">归档</a></li>
+				<li><a href="/archives/index.html">TIMELINE</a></li>
 	        
 				<li><a href="/To-do/index.html">TO DO</a></li>
 	        
@@ -71,13 +71,17 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">POST</a>
     			
             
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			<a q-on="click: openSlider(e, 'mythought')" href="javascript:void(0)">MYTHOUGHT</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">ABOUT</a>
     			
             
 		</nav>
@@ -112,7 +116,7 @@
 			  <h1 class="header-author js-header-author">懒羊羊</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你看那个人，好像条狗欸<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你看，那个人好像条狗欸<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -140,9 +144,9 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">HOME</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/index.html">TIMELINE</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/To-do/index.html">TO DO</a></li>
 		        
@@ -306,7 +310,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    暂时还没有目录哟
                     </div>
                 </span>
             </div>
@@ -402,19 +406,27 @@ MathJax.Hub.Queue(function() {
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">POST</a></li>
       
         
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'mythought')"><a href="javascript:void(0)" q-class="active:mythought">MYTHOUGHT</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">ABOUT</a></li>
       
         
     </ul>
@@ -433,6 +445,14 @@ MathJax.Hub.Queue(function() {
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">os</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>

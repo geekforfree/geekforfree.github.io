@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://geekforfree.github.io">
-  <title>留言板 | 懒羊羊的肥宅乐园</title>
+  <title>shell编程(一) | 懒羊羊的肥宅乐园</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="geeker-lazysheep">
-<meta property="og:type" content="website">
-<meta property="og:title" content="留言板">
-<meta property="og:url" content="http://geekforfree.github.io/comment/index.html">
+  <meta name="description" content="shell 编程 (一)最近在学shell 编程，做个小记录">
+<meta name="keywords" content="linux,os">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell编程(一)">
+<meta property="og:url" content="http://geekforfree.github.io/2019/04/01/shell编程-一/index.html">
 <meta property="og:site_name" content="懒羊羊的肥宅乐园">
-<meta property="og:description" content="geeker-lazysheep">
+<meta property="og:description" content="shell 编程 (一)最近在学shell 编程，做个小记录">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-17T13:20:21.513Z">
+<meta property="og:updated_time" content="2019-04-01T05:00:53.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="留言板">
-<meta name="twitter:description" content="geeker-lazysheep">
+<meta name="twitter:title" content="shell编程(一)">
+<meta name="twitter:description" content="shell 编程 (一)最近在学shell 编程，做个小记录">
   
     <link rel="alternative" href="/atom.xml" title="懒羊羊的肥宅乐园" type="application/atom+xml">
   
@@ -163,27 +164,252 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-shell编程-一" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      留言板
+      shell编程(一)
     </h1>
   
 
         
-        <a href="/comment/index.html" class="archive-article-date">
-  	<time datetime="2019-03-17T13:20:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
+        <a href="/2019/04/01/shell编程-一/" class="archive-article-date">
+  	<time datetime="2019-04-01T04:49:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="shell-编程-一"><a href="#shell-编程-一" class="headerlink" title="shell 编程 (一)"></a>shell 编程 (一)</h4><p>最近在学shell 编程，做个小记录</p>
+<a id="more"></a>
+<ul>
+<li><h5 id="赋值时不用美元符号-，使用变量时才用美元符号"><a href="#赋值时不用美元符号-，使用变量时才用美元符号" class="headerlink" title="赋值时不用美元符号 $ ，使用变量时才用美元符号"></a>赋值时不用<strong>美元符号 $</strong> ，使用变量时才用<strong>美元符号</strong></h5><pre><code>your_name=&quot;tom&quot;
+echo $your_name
+your_name=&quot;alibaba&quot;
+echo $your_name
+</code></pre><p>  <strong>花括号 {} 用来识别变量边界  echo “im good at <code>$花括号</code>skil <code>花括号script</code>“ ,推荐给所有变量加上花括号{ }，这是个良好的编程习惯。</strong></p>
+</li>
+<li><h5 id="只读变量-readonly，只读变量的值不能被改变"><a href="#只读变量-readonly，只读变量的值不能被改变" class="headerlink" title="只读变量 readonly，只读变量的值不能被改变"></a>只读变量 readonly，只读变量的值不能被改变</h5></li>
+<li><h5 id="删除变量-unset"><a href="#删除变量-unset" class="headerlink" title="删除变量 unset"></a>删除变量 unset</h5></li>
+<li><h5 id="shell-格式"><a href="#shell-格式" class="headerlink" title="shell 格式"></a>shell 格式</h5><ul>
+<li>[19:00:08]hjf@ubuntu:~/Desktop$<ul>
+<li>启动shell的用户名为 hjf</li>
+<li>当地本机名称：localhost</li>
+<li>当前目录 <strong>~</strong> 是主目录的简写表示法</li>
+</ul>
+</li>
+<li>shell通过 <strong>PS1</strong> 和 <strong>PS2</strong> 两个环境变量来控制提示符格式：<ul>
+<li>PS1 控制最外层命令行的提示符格式</li>
+<li>PS2 控制第二层命令行的格式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\a</td>
+<td style="text-align:center">铃声字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\d</td>
+<td style="text-align:center">格式为“日 月 年”的日期</td>
+</tr>
+<tr>
+<td style="text-align:center">\e</td>
+<td style="text-align:center">ASCII转义字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\h</td>
+<td style="text-align:center">本地主机名</td>
+</tr>
+<tr>
+<td style="text-align:center">\H</td>
+<td style="text-align:center">完全合格的限定域主机名</td>
+</tr>
+<tr>
+<td style="text-align:center">\j</td>
+<td style="text-align:center">shell当前管理的作业数</td>
+</tr>
+<tr>
+<td style="text-align:center">\1</td>
+<td style="text-align:center">shell终端设备名的基本名称</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td style="text-align:center">ASCII换行字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td style="text-align:center">ASCII回车</td>
+</tr>
+<tr>
+<td style="text-align:center">\s</td>
+<td style="text-align:center">shell的名称</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td style="text-align:center">格式为“小时:分钟:秒”的24小时制的当前时间</td>
+</tr>
+<tr>
+<td style="text-align:center">\T</td>
+<td style="text-align:center">格式为“小时:分钟:秒”的12小时制的当前时间</td>
+</tr>
+<tr>
+<td style="text-align:center">\@</td>
+<td style="text-align:center">格式为am/pm的12小时制的当前时间</td>
+</tr>
+<tr>
+<td style="text-align:center">\u</td>
+<td style="text-align:center">当前用户的用户名</td>
+</tr>
+<tr>
+<td style="text-align:center">\v</td>
+<td style="text-align:center">bash shell的版本</td>
+</tr>
+<tr>
+<td style="text-align:center">\V</td>
+<td style="text-align:center">bash shell的发布级别</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td style="text-align:center">当前工作目录</td>
+</tr>
+<tr>
+<td style="text-align:center">\W</td>
+<td style="text-align:center">当前工作目录的基本名称</td>
+</tr>
+<tr>
+<td style="text-align:center">!</td>
+<td style="text-align:center">该命令的bash shell历史数</td>
+</tr>
+<tr>
+<td style="text-align:center">#</td>
+<td style="text-align:center">该命令的命令数量</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\$</code></td>
+<td style="text-align:center">如果是普通用户，则为美元符号<code>$</code>；如果超级用户（root 用户），则为井号#。</td>
+</tr>
+<tr>
+<td style="text-align:center">\nnn</td>
+<td style="text-align:center">对应于八进制值 nnn 的字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\</td>
+<td style="text-align:center">斜杠</td>
+</tr>
+<tr>
+<td style="text-align:center">[</td>
+<td style="text-align:center">控制码序列的开头</td>
+</tr>
+<tr>
+<td style="text-align:center">]</td>
+<td style="text-align:center">控制码序列的结尾</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><h5 id="read-输入"><a href="#read-输入" class="headerlink" title="read 输入"></a>read 输入</h5></li>
+<li><h5 id="单引号与双引号的区别"><a href="#单引号与双引号的区别" class="headerlink" title="单引号与双引号的区别"></a>单引号与双引号的区别</h5><pre><code>read PERSON
+echo &quot;hello, $PERSON&quot;
+echo &apos;hello, $PERSON&apos;
+</code></pre><p>  <strong>结果</strong></p>
+<pre><code>hello, hjf
+hello, $PERSON
+</code></pre></li>
+</ul>
+<pre><code>**以单引号&apos; &apos;包围变量的值时，单引号里面是什么就输出什么，即使内容中有变量和命令（命令需要反引起来）也会把它们原样输出。这种方式比较适合定义显示纯字符串的情况，即不希望解析变量、命令等的场景。以双引号&quot; &quot;包围变量的值时，输出时会先解析里面的变量和命令，而不是把双引号中的变量名和命令原样输出。这种方式比较适合字符串中附带有变量和命令并且想将其解析后再输出的变量定义。**
+
+**我的建议：如果变量的内容是数字，那么可以不加引号；如果真的需要原样输出就加单引号；其他没有特别要求的字符串等最好都加上双引号，定义变量时加双引号是最常见的使用场景。**
+</code></pre><ul>
+<li><h5 id="shell的作用域"><a href="#shell的作用域" class="headerlink" title="shell的作用域"></a>shell的作用域</h5><ul>
+<li><strong>shell变量的有效范围</strong><ul>
+<li>全局变量</li>
+<li>局部变量</li>
+<li>环境变量 <strong>export</strong><ul>
+<li>在所有子shell中都有效</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="shell-的位置参数"><a href="#shell-的位置参数" class="headerlink" title="shell 的位置参数"></a>shell 的位置参数</h5><p>  <strong>运行 Shell 脚本文件时我们可以给它传递一些参数，这些参数在脚本文件内部可以使用<code>$n</code> 的形式来接收，例如，<code>$1</code> 表示第一个参数，<code>$2</code> 表示第二个参数，依次类推。同样，在调用函数时也可以传递参数。Shell 函数参数的传递和其它编程语言不同，没有所谓的形参和实参，在定义函数时也不用指明参数的名字和数目。换句话说，定义 Shell 函数时不能带参数，但是在调用函数时却可以传递参数，这些传递进来的参数，在函数内部就也使用<code>$n</code>的形式接收，例如，<code>$1</code> 表示第一个参数，<code>$2</code> 表示第二个参数，依次类推。这种通过<code>$n</code>的形式来接收的参数，在 Shell 中称为位置参数。在讲解变量的命名时，我们提到：变量的名字必须以字母或者下划线开头，不能以数字开头；但是位置参数却偏偏是数字，这和变量的命名规则是相悖的，所以我们将它们视为“特殊变量”。</strong></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>$0</code></td>
+<td style="text-align:center">当前脚本的文件名</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$n</code>（n&gt;=1)</td>
+<td style="text-align:center">传递给脚本或函数的参数</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$#</code></td>
+<td style="text-align:center">传递给脚本或函数的参数个数</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$*</code></td>
+<td style="text-align:center">传递给脚本或函数的所有参数</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$@</code></td>
+<td style="text-align:center">传递给脚本或函数的所有参数</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$?</code></td>
+<td style="text-align:center">上个命令的退出状态或函数的返回值</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$$</code></td>
+<td style="text-align:center">当前shell进程ID</td>
+</tr>
+</tbody>
+</table>
+<p><strong> shell <code>$*</code> 和 <code>$@</code> 的区别 </strong></p>
+<p><code>$*</code> 和 <code>$@</code> 都表示传递给函数或脚本的所有参数，我们已在《Shell特殊变量》一节中进行了演示，本节重点说一下它们之间的区别。</p>
+<p>当 <code>$*</code> 和 <code>$@</code> 不被双引号” “包围时，它们之间没有任何区别，都是将接收到的每个参数看做一份数据，彼此之间以空格来分隔。<br>但是当它们被双引号” “包含时，就会有区别了：</p>
+<ul>
+<li><code>$*</code>会将所有的参数从整体上看做一份数据，而不是把每个参数都看做一份数据。</li>
+<li><code>$@</code>仍然将每个参数都看作一份数据，彼此之间是独立的。<br>比如传递了 5 个参数，那么对于<code>$*</code>来说，这 5 个参数会合并到一起形成一份数据，它们之间是无法分割的；而对于<code>$@</code>来说，这 5 个参数是相互独立的，它们是 5 份数据。<br>如果使用 echo 直接输出<code>$*</code>和<code>$@</code>做对比，是看不出区别的；但如果使用 for 循环来逐个输出数据，立即就能看出区别来。</li>
+</ul>
+<ul>
+<li>字符串详解</li>
+</ul>
+<p>1) 由单引号’ ‘包围的字符串：<br>任何字符都会原样输出，在其中使用变量是无效的。<br>字符串中不能出现单引号，即使对单引号进行转义也不行。</p>
+<p>2) 由双引号” “包围的字符串：<br>如果其中包含了某个变量，那么该变量会被解析（得到该变量的值），而不是原样输出。字符串中可以出现双引号，只要它被转义了就行。</p>
+<p>3) 不被引号包围的字符串<br>不被引号包围的字符串中出现变量时也会被解析，这一点和双引号” “包围的字符串一样。字符串中不能出现空格，否则空格后边的会作为其他变量或者字符串解析。</p>
+<ul>
+<li>获取字符串长度<ul>
+<li><code>花括号</code>#string<code>花括号</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>参考资料</strong></p>
+<p><a href="http://c.biancheng.net&quot;shell编程&quot;" target="_blank" rel="noopener">shell编程</a></p>
+
       
 
       
@@ -222,7 +448,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/shell//" class="article-tag-list-link color1">shell</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -272,7 +524,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://geekforfree.github.io/comment/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://geekforfree.github.io/2019/04/01/shell编程-一/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,6 +536,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/17/github个人博客的搭建-hexo主题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">github个人博客的搭建+hexo主题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -305,7 +567,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    暂时还没有目录哟
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#shell-编程-一"><span class="toc-number">1.</span> <span class="toc-text">shell 编程 (一)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#赋值时不用美元符号-，使用变量时才用美元符号"><span class="toc-number">1.1.</span> <span class="toc-text">赋值时不用美元符号 $ ，使用变量时才用美元符号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#只读变量-readonly，只读变量的值不能被改变"><span class="toc-number">1.2.</span> <span class="toc-text">只读变量 readonly，只读变量的值不能被改变</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#删除变量-unset"><span class="toc-number">1.3.</span> <span class="toc-text">删除变量 unset</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#shell-格式"><span class="toc-number">1.4.</span> <span class="toc-text">shell 格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#read-输入"><span class="toc-number">1.5.</span> <span class="toc-text">read 输入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#单引号与双引号的区别"><span class="toc-number">1.6.</span> <span class="toc-text">单引号与双引号的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#shell的作用域"><span class="toc-number">1.7.</span> <span class="toc-text">shell的作用域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#shell-的位置参数"><span class="toc-number">1.8.</span> <span class="toc-text">shell 的位置参数</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -347,7 +609,7 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

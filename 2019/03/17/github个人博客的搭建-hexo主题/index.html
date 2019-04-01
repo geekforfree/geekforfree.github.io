@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://geekforfree.github.io/2019/03/17/github个人博客的搭建-hexo主题/index.html">
 <meta property="og:site_name" content="懒羊羊的肥宅乐园">
 <meta property="og:description" content="第一次用github+hexo搭建blog，做个小记录">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/MJvpMRd.png">
 <meta property="og:image" content="https://i.imgur.com/1kuZH0Y.png">
 <meta property="og:image" content="https://i.imgur.com/hVWnHyI.png">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://i.imgur.com/YbMHM9n.png">
 <meta property="og:image" content="https://i.imgur.com/rL7x2Tg.png">
 <meta property="og:image" content="https://i.imgur.com/L8g2fBJ.png">
-<meta property="og:updated_time" content="2019-03-18T01:09:33.566Z">
+<meta property="og:updated_time" content="2019-03-18T01:18:53.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github个人博客的搭建+hexo主题">
 <meta name="twitter:description" content="第一次用github+hexo搭建blog，做个小记录">
@@ -64,15 +64,15 @@
 		  <h1 class="header-author"><a href="/">懒羊羊</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">你看那个人，好像条狗欸</p>
+		<p class="header-subtitle">你看，那个人好像条狗欸</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">HOME</a></li>
 	        
-				<li><a href="/archives/index.html">归档</a></li>
+				<li><a href="/archives/index.html">TIMELINE</a></li>
 	        
 				<li><a href="/To-do/index.html">TO DO</a></li>
 	        
@@ -81,13 +81,17 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">POST</a>
     			
             
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			<a q-on="click: openSlider(e, 'mythought')" href="javascript:void(0)">MYTHOUGHT</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">ABOUT</a>
     			
             
 		</nav>
@@ -122,7 +126,7 @@
 			  <h1 class="header-author js-header-author">懒羊羊</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你看那个人，好像条狗欸<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你看，那个人好像条狗欸<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -150,9 +154,9 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">HOME</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/index.html">TIMELINE</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/To-do/index.html">TO DO</a></li>
 		        
@@ -191,7 +195,7 @@
       
         <p>第一次用github+hexo 搭建blog,做个小记录</p>
 <a id="more"></a>
-<ol>
+<h1 id="搭建github博客"><a href="#搭建github博客" class="headerlink" title="搭建github博客"></a>搭建github博客</h1><h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><ol>
 <li><p>建立一个以自己帐户名为名的仓库</p>
 <p> <img src="https://i.imgur.com/MJvpMRd.png" alt="1"></p>
 </li>
@@ -204,6 +208,8 @@
 <p> <code>1. 输入 npm install hexo -g</code></p>
 <p> <img src="https://i.imgur.com/hVWnHyI.png" alt="3"></p>
 </li>
+</ol>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><ol start="5">
 <li><p>初始化文件夹</p>
 <pre><code>1. hexo init blog
 
@@ -371,6 +377,20 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/04/01/shell编程-一/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          shell编程(一)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -392,7 +412,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建github博客"><span class="toc-number">1.</span> <span class="toc-text">搭建github博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境安装"><span class="toc-number">1.1.</span> <span class="toc-text">环境安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建步骤"><span class="toc-number">1.2.</span> <span class="toc-text">搭建步骤</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -488,19 +508,27 @@ MathJax.Hub.Queue(function() {
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">POST</a></li>
       
         
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'mythought')"><a href="javascript:void(0)" q-class="active:mythought">MYTHOUGHT</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">ABOUT</a></li>
       
         
     </ul>
@@ -519,6 +547,14 @@ MathJax.Hub.Queue(function() {
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">os</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
