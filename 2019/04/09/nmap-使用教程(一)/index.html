@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://geekforfree.github.io">
-  <title>Http 1.0 与 1.1 的区别 | 懒羊羊的肥宅乐园</title>
+  <title>nmap 使用教程(一) | 懒羊羊的肥宅乐园</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="http 1.0 与 1.1 的区别今天看了下 一个完整的web请求到底发生了什么，里面说 通常一个web请求完毕之后，连接断开，但是http 1.1 可以保持长连接，就去查找http1.0 与 1.1 的区别，并做此记录。 水平不足，望指正。">
-<meta name="keywords" content="HTTP">
+  <meta name="description" content="网络嗅探工具的学习">
+<meta name="keywords" content="nmap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Http 1.0 与 1.1 的区别">
-<meta property="og:url" content="http://geekforfree.github.io/2019/04/09/Http-1-0-与-1-1-的区别/index.html">
+<meta property="og:title" content="nmap 使用教程(一)">
+<meta property="og:url" content="http://geekforfree.github.io/2019/04/09/nmap-使用教程(一)/index.html">
 <meta property="og:site_name" content="懒羊羊的肥宅乐园">
-<meta property="og:description" content="http 1.0 与 1.1 的区别今天看了下 一个完整的web请求到底发生了什么，里面说 通常一个web请求完毕之后，连接断开，但是http 1.1 可以保持长连接，就去查找http1.0 与 1.1 的区别，并做此记录。 水平不足，望指正。">
+<meta property="og:description" content="网络嗅探工具的学习">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-09T02:10:53.512Z">
+<meta property="og:updated_time" content="2019-04-09T02:47:58.840Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Http 1.0 与 1.1 的区别">
-<meta name="twitter:description" content="http 1.0 与 1.1 的区别今天看了下 一个完整的web请求到底发生了什么，里面说 通常一个web请求完毕之后，连接断开，但是http 1.1 可以保持长连接，就去查找http1.0 与 1.1 的区别，并做此记录。 水平不足，望指正。">
+<meta name="twitter:title" content="nmap 使用教程(一)">
+<meta name="twitter:description" content="网络嗅探工具的学习">
   
     <link rel="alternative" href="/atom.xml" title="懒羊羊的肥宅乐园" type="application/atom+xml">
   
@@ -43,8 +43,11 @@
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
+      <!--</div> -->
       
 <div class="overlay" style="background: #696969"></div>
+
+
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -74,17 +77,17 @@
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">POST</a>
     			
-            
+						
     			
-            
+						
     			
     			<a q-on="click: openSlider(e, 'mythought')" href="javascript:void(0)">MYTHOUGHT</a>
     			
-            
+						
     			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">ABOUT</a>
     			
-            
+						
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
@@ -93,10 +96,24 @@
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
+					<a class="qq" target="_blank" href="/980937226" title="qq"><i class="icon-qq"></i></a>
+		        
 					<a class="mail" target="_blank" href="mailto:geekforfree961228@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
+
+		<nav class="header-menu">
+			<ul>
+				  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+				  </script>
+				  <span id="busuanzi_container_site_uv">
+				    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+				  </span>
+
+			</ul>
+		</nav>
+
 	</header>		
 </div>
 
@@ -136,6 +153,8 @@
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
+						<a class="qq" target="_blank" href="/980937226" title="qq"><i class="icon-qq"></i></a>
+			        
 						<a class="mail" target="_blank" href="mailto:geekforfree961228@gmail.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
@@ -164,73 +183,315 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Http-1-0-与-1-1-的区别" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-nmap-使用教程(一)" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Http 1.0 与 1.1 的区别
+      nmap 使用教程(一)
     </h1>
   
 
+        <!--显示阅读次数-->
         
-        <a href="/2019/04/09/Http-1-0-与-1-1-的区别/" class="archive-article-date">
-  	<time datetime="2019-04-09T02:08:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-09</time>
+        <br>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            本文已被阅读: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+        </a>
+        
+        
+        <a href="/2019/04/09/nmap-使用教程(一)/" class="archive-article-date">
+  	<time datetime="2019-04-09T02:39:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="http-1-0-与-1-1-的区别"><a href="#http-1-0-与-1-1-的区别" class="headerlink" title="http 1.0 与 1.1 的区别"></a>http 1.0 与 1.1 的区别</h3><p>今天看了下 <a href="https://www.jianshu.com/p/08e362173b67?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weixin_timeline&amp;from=timeline&amp;isappinstalled=0" target="_blank" rel="noopener">一个完整的web请求到底发生了什么</a>，里面说 通常一个web请求完毕之后，连接断开，但是http 1.1 可以保持长连接，就去查找http1.0 与 1.1 的区别，并做此记录。 水平不足，望指正。</p>
+        <h3 id="nmap-常用命令"><a href="#nmap-常用命令" class="headerlink" title="nmap 常用命令"></a>nmap 常用命令</h3><p><code>nmap</code>是一个网络探测和安全扫描程序，系统管理者和个人可以使用这个软件扫描大型的网络，获取那台主机正在运行以及提供什么服务等信息。nmap支持很多扫描技术，例如：<code>UDP、TCP connect()、TCP SYN(半开扫描)、ftp代理(bounce攻击)、反向标志、ICMP、FIN、ACK扫描、圣诞树(Xmas Tree)、SYN扫描和null扫描</code>。从扫描类型一节可以得到细节。nmap还提供了一些高级的特征，例如：通过TCP/IP协议栈特征探测操作系统类型，秘密扫描，动态延时和重传计算，并行扫描，通过并行ping扫描探测关闭的主机，诱饵扫描，避开端口过滤检测，直接RPC扫描(无须端口影射)，碎片扫描，以及灵活的目标和端口设定。</p>
+<p><strong>为了提高nmap在non-root状态下的性能，软件的设计者付出了很大的努力。很不幸，一些内核界面(例如raw socket)需要在root状态下使用。所以应该尽可能在root使用nmap</strong></p>
 <a id="more"></a>
-<h4 id="http-1-1-支持长连接"><a href="#http-1-1-支持长连接" class="headerlink" title="http 1.1 支持长连接"></a>http 1.1 支持长连接</h4><p><strong>http 1.0 规定每次请求完毕之后关掉连接，即保持短暂的连接</strong><br>而http 1.1 支持持久连接并默认为 persistent connection，同一个tcp连接中可以发送多次请求，理所当然便需要更多的请求头和响应头<code>Connection的值为keep-alive</code> 和 <code>host</code></p>
-<h4 id="缓存管理"><a href="#缓存管理" class="headerlink" title="缓存管理"></a>缓存管理</h4><ul>
-<li>http 1.0 主要使用header里面的 <code>if-modified-since</code>, <code>expires</code>做缓存的判断</li>
-<li>Http 1.1 引入了更多的缓存控制策略，提供更多的消息头列入<code>entity tag</code>,<code>if-unmodified</code>,<code>if-match</code>,<code>if-none-match</code></li>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a><strong>常用命令</strong></h4><h5 id="多目标扫描"><a href="#多目标扫描" class="headerlink" title="多目标扫描"></a>多目标扫描</h5><ul>
+<li>nmap 【ip1 ip2 ip3】<ul>
+<li>nmap 192.168.31.10,213 <ul>
+<li>[最后的主机号不一样即可达到相同目的]</li>
+</ul>
+</li>
+<li>nmap 192.168.31.0/24（*） <ul>
+<li>【扫描 31这个子网中范围 0~255的主机】</li>
+</ul>
+</li>
+<li>nmap 192.168.31.10 - 192.168.31.100 【10 ~ 100】</li>
+<li>-iL <filename>  <ul>
+<li>在文件中读取需要扫描的IP</li>
+</ul>
+</filename></li>
+<li>-iR <num hosts> &lt;目标数量&gt;<ul>
+<li>选择随机目标</li>
+</ul>
+</num></li>
+<li>–exclude &lt;host1 [;<host2>]&gt; <ul>
+<li>扫描除了 host1、2 之外的ip</li>
+</ul>
+</host2></li>
+<li>–excludefile <filename><ul>
+<li>扫描除了 文件之外的ip地址<h5 id="发现主机"><a href="#发现主机" class="headerlink" title="发现主机"></a>发现主机</h5></li>
+</ul>
+</filename></li>
+</ul>
+</li>
+<li>-sL </li>
+<li>-sP  <ul>
+<li><strong>ping 扫描、 不会返回太多信息，方便信息分析 高效</strong></li>
+</ul>
+</li>
+<li>-P0  <ul>
+<li><strong>无ping 扫描 躲避防火墙防护，在目标主机禁止ping</strong></li>
+</ul>
+</li>
+<li>-sn</li>
+<li>-PS <ul>
+<li><strong>TCP SYN PING 扫描 默认情况下，nmap 使用tcp、ack、icmp请求对目标进行扫描，但是目标主机的防火墙可以阻止这些请求，可以使用 tcp、syn、ping 扫描判断主机是否存活</strong> </li>
+</ul>
+</li>
+<li>-PA <ul>
+<li><strong>TCP ACK PING 扫描</strong><br>**-PS -PA </li>
+<li>又发送SYN又发送 ACK**</li>
+</ul>
+</li>
+<li>-PR <ul>
+<li><strong>ARP ping 扫描 局域网中 arp扫描最有效，本地局域网防火墙不会禁止arp请求</strong></li>
+</ul>
+</li>
+<li>-n <ul>
+<li><strong>禁止 dns反向扫描，禁止域名解析，使用该项大幅减少目标主机的响应时间</strong></li>
+</ul>
+</li>
+<li>-PU <ul>
+<li><strong>udp扫描</strong></li>
+</ul>
+</li>
+<li>-Pn (no ping)</li>
+<li>-A </li>
+<li>-o <ul>
+<li>(用于识别操作系统)</li>
+</ul>
+</li>
+</ul>
+<h5 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a><strong>端口扫描</strong></h5><ul>
+<li>-T  <strong>时序选择</strong><ul>
+<li>T0 —— 非常慢的扫描用于IDS【入侵检测系统】逃逸 </li>
+<li>T1  <strong>缓慢</strong><ul>
+<li>sneaky， 发包时间间隔 15s</li>
+</ul>
+</li>
+<li>T2  <strong>文雅</strong><ul>
+<li>polite </li>
+</ul>
+</li>
+<li>T3  <strong>普通</strong><ul>
+<li>normal 默认选项，不适用网络过载，主机/端口丢失下，快速扫描</li>
+</ul>
+</li>
+<li>T4  <strong>快速</strong><ul>
+<li>aggressive， 设置5分钟限制，对每台机器的扫描时间不超过5分钟</li>
+</ul>
+</li>
+<li>T5  <strong>急速</strong></li>
+</ul>
+</li>
+<li>-p  <strong>指定端口扫描</strong><ul>
+<li>-top-ports  扫描开放概率最高的端口</li>
+</ul>
+</li>
+<li>-F  <strong>快速扫描</strong></li>
+<li>-sS <strong>TCP SYN 扫描</strong><ul>
+<li>半开扫描，速度快，一秒一千，隐蔽，没有建立三次握手</li>
+</ul>
+</li>
+<li>-sT <strong>TCP 连接扫描</strong><ul>
+<li>基础，稳定，建立三次握手</li>
+</ul>
+</li>
+<li>-sU <strong>UDP 扫描</strong><ul>
+<li>非常慢、易被忽视，通常与特定端口 -p 配合。</li>
+</ul>
+</li>
+<li>-sN、-sF <strong>隐蔽扫描</strong><ul>
+<li>-sN null扫描，-sF fin扫描，有穿透效果</li>
+</ul>
+</li>
+<li>-sI     <strong>空闲扫描</strong><ul>
+<li>不使用自己的ip来进行端口扫描</li>
+<li>nmap -sI [僵尸主机] [目标主机]</li>
+</ul>
+</li>
+<li>寻在空闲主机<ul>
+<li>全网段寻找<ul>
+<li>nmap -p80 -open -script ipidseq 【网段】</li>
+</ul>
+</li>
+<li>网上随机式扫描<ul>
+<li>nmap -p80 -open -script ipidseq -iR 2000<br>nmap -Pn -sI [僵尸主机] [目标主机]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="系统识别"><a href="#系统识别" class="headerlink" title="系统识别"></a><strong>系统识别</strong></h6><p><strong>对端口的探测，获取目标端口对应服务和服务版本，若该服务版本较低，可去搜索其历史漏洞，进行渗透</strong></p>
+<ul>
+<li>-sV <ul>
+<li>版本探测</li>
+</ul>
+</li>
+<li>–allports<ul>
+<li>全端口版本探测</li>
+<li><strong>扫描所有全部端口</strong></li>
+</ul>
+</li>
+<li>–version-intersity<ul>
+<li>设置扫描强度</li>
+</ul>
+</li>
+<li>–version-light<ul>
+<li>轻量级扫描</li>
+</ul>
+</li>
+<li>–version-all<ul>
+<li>重量级扫描</li>
+</ul>
+</li>
+<li>–version-trace<ul>
+<li>获取版本详细信息</li>
+</ul>
+</li>
+<li>-sR<ul>
+<li>rpc扫描</li>
+</ul>
+</li>
+</ul>
+<p><strong>nmap service 端口对应的服务表</strong></p>
+<p><strong>问题 若主机服务改掉常用端口nmap</strong></p>
+<p><strong>nmap-service-probes</strong></p>
+<ul>
+<li>exclude <ports></ports></li>
+<li>probe</li>
+<li>match</li>
+<li>softmatch</li>
+<li>ports/sslports</li>
+<li>totalwaitms</li>
+<li>rarity</li>
+<li>fallback</li>
+</ul>
+<p>######<strong>操作系统探测方法</strong></p>
+<ul>
+<li>-O <ul>
+<li>启用操作系统探测</li>
+</ul>
+</li>
+<li>–osscan-limit<ul>
+<li>只对端口开放的主机，进行操作系统检测</li>
+</ul>
+</li>
+<li>–osscan-guess</li>
+<li><p>–fuzzy</p>
+</li>
+<li><p><strong>显示操作系统的数据</strong></p>
+<ul>
+<li>device type 设备类型</li>
+<li>running</li>
+<li>os details</li>
+<li>uptime guess</li>
+<li>network distance</li>
+<li>tcp sp</li>
+<li>ip id generation <h6 id="端口状态"><a href="#端口状态" class="headerlink" title="端口状态"></a>端口状态</h6></li>
+</ul>
+</li>
+<li>01 open  <ul>
+<li>端口开启，数据到达主机，有程序在端口上监控</li>
+</ul>
+</li>
+<li>02 closed  <ul>
+<li>端口关闭，数据到达主机，没有程序在端口监控</li>
+</ul>
+</li>
+<li>03 Filtered <ul>
+<li>数据没有到达主机，返回结果为空，数据被防火墙或者IDS过滤</li>
+</ul>
+</li>
+<li>04 unfiltered <ul>
+<li>数据有到达主机，但是不能识别端口的当前状态</li>
+</ul>
+</li>
+<li>05 Open|Filtered <ul>
+<li>端口没有返回值</li>
+</ul>
+</li>
+<li>06 closed|Filtered </li>
+</ul>
+<h6 id="扫描优化"><a href="#扫描优化" class="headerlink" title="- 扫描优化"></a>- 扫描优化</h6><ul>
+<li>–min-hostgroup</li>
+<li><p>–max-hostgroup</p>
+<ul>
+<li>并行组优化</li>
+<li>默认并行组为5，最大为1024</li>
+</ul>
+</li>
+<li><p>–min-parallelism</p>
+</li>
+<li><p>–max-parallelism</p>
+<ul>
+<li>并行度</li>
+<li>默认状态下，nmap基于网络性能计算一个理想的并行度</li>
+</ul>
+</li>
+<li><p>–min-rtt-timeout</p>
+</li>
+<li>–max-rtt-timeout</li>
+<li><p>–initial-rtt-timeout</p>
+<ul>
+<li>nmap基于上一个探测报文的响应时间来计算超时值</li>
+</ul>
+</li>
+<li><p>–host-timeout</p>
+</li>
+<li><p>–scan-delay</p>
+</li>
+</ul>
+<h5 id="防火墙、IDS简介及几种欺骗手段命令的解释及讲解"><a href="#防火墙、IDS简介及几种欺骗手段命令的解释及讲解" class="headerlink" title="防火墙、IDS简介及几种欺骗手段命令的解释及讲解"></a>防火墙、IDS简介及几种欺骗手段命令的解释及讲解</h5><ul>
+<li><p>防火墙</p>
+<ul>
+<li>基于主机的防火墙</li>
+<li>基于网络的防火墙 </li>
+</ul>
+<ul>
+<li>nmap防火墙和ids逃逸技术<ul>
+<li>-f<ul>
+<li>报文分段</li>
+<li>f 一个字节</li>
+</ul>
+</li>
+<li>–mtu<ul>
+<li>指定偏移大小</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <hr>
-<p>目前所学只能写到这里，以后还会更新</p>
+<p>参考资料<br><a href="https://www.fujieace.com/hacker/tools/nmap-7.html" title="nmap用法" target="_blank" rel="noopener">https://www.fujieace.com/hacker/tools/nmap-7.html</a></p>
 <hr>
-<p>参考资料</p>
-<p><a href="http://www.cnblogs.com/zhangyfr/p/8662673.html" target="_blank" rel="noopener">http://www.cnblogs.com/zhangyfr/p/8662673.html</a></p>
-<p><a href="https://www.cnblogs.com/gofighting/p/5421890.html" target="_blank" rel="noopener">https://www.cnblogs.com/gofighting/p/5421890.html</a></p>
+<p>需要学习的协议：<br>TCP、ACK、ICMP、SYN、rpc</p>
 
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>么么哒<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/asset/weixin.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/asset/weixin.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
+        
       
     </div>
     <div class="article-info article-info-index">
@@ -241,7 +502,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTTP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nmap</a>
         		</li>
       		
 		</ul>
@@ -253,7 +514,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/网络协议//" class="article-tag-list-link color5">网络协议</a>
+        			<a href="/categories/网络工具//" class="article-tag-list-link color5">网络工具</a>
         		</li>
       		
 		</ul>
@@ -308,7 +569,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://geekforfree.github.io/2019/04/09/Http-1-0-与-1-1-的区别/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://geekforfree.github.io/2019/04/09/nmap-使用教程(一)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,9 +583,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/04/11/域环境/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          域环境
+        
+      </div>
+    </a>
   
-    <a href="/2019/04/01/shell编程-一/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">shell编程(一)</div>
+  
+    <a href="/2019/04/09/Http-1.0-与-1.1-的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Http 1.0 与 1.1 的区别</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -351,7 +621,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#http-1-0-与-1-1-的区别"><span class="toc-number">1.</span> <span class="toc-text">http 1.0 与 1.1 的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#http-1-1-支持长连接"><span class="toc-number">1.1.</span> <span class="toc-text">http 1.1 支持长连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缓存管理"><span class="toc-number">1.2.</span> <span class="toc-text">缓存管理</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#nmap-常用命令"><span class="toc-number">1.</span> <span class="toc-text">nmap 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常用命令"><span class="toc-number">1.1.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#多目标扫描"><span class="toc-number">1.1.1.</span> <span class="toc-text">多目标扫描</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#发现主机"><span class="toc-number">1.1.2.</span> <span class="toc-text">发现主机</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#端口扫描"><span class="toc-number">1.1.3.</span> <span class="toc-text">端口扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#系统识别"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">系统识别</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#端口状态"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">端口状态</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#扫描优化"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">- 扫描优化</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#防火墙、IDS简介及几种欺骗手段命令的解释及讲解"><span class="toc-number">1.1.4.</span> <span class="toc-text">防火墙、IDS简介及几种欺骗手段命令的解释及讲解</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -369,9 +639,28 @@
   
 
   
-
   
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  if (true) {
+    var gitalk = new Gitalk({
+      clientID: 'fa5d8f380f52fec1a852',
+      clientSecret: 'b78082c59bc020e224acb27c8d81c45046892acc',
+      repo: 'geekforfree.github.io',
+      owner: 'geekforfree',
+      admin: ['geekforfree'],
+      id: 'Tue Apr 09 2019 10:39:43 GMT+0800',
+      distractionFreeMode: 'true'
+    })
+    gitalk.render('gitalk-container')
+  }
+</script>
+  
+  
+  
 
           </div>
         </div>
@@ -384,7 +673,7 @@
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+				</div>
     </div>
   </div>
 </footer>
@@ -431,6 +720,9 @@ MathJax.Hub.Queue(function() {
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
@@ -492,6 +784,38 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">token</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ettercap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">dns 欺骗</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RCE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码审计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">discuz ml</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -500,11 +824,67 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码泄露</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">newbugku</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">nmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">环境搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">魔术方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">os</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">typecho</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">反序列化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">域环境</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">序列化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">子域名挖掘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">敏感目录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">端口查询</a>
               </li>
             
             <div class="clearfix"></div>
