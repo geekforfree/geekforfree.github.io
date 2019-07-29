@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="懒羊羊的肥宅乐园">
 <meta property="og:description" content="最近在学shell 编程，做个小记录">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-14T12:36:08.962Z">
+<meta property="og:updated_time" content="2019-07-28T15:02:14.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell编程(一)">
 <meta name="twitter:description" content="最近在学shell 编程，做个小记录">
@@ -215,22 +215,12 @@
       
         <p><strong>最近在学shell 编程，做个小记录</strong></p>
 <a id="more"></a>
-<hr>
 <h5 id="变量赋值"><a href="#变量赋值" class="headerlink" title="变量赋值"></a>变量赋值</h5><p>变量赋值时不用 <strong>美元符号<code>$</code></strong> ，使用变量时才用 <strong>美元符号 <code>$</code></strong></p>
-<pre><code>your_name=&quot;tom&quot;
-echo $your_name
-your_name=&quot;alibaba&quot;
-echo $your_name
-</code></pre><p><strong>花括号 {} 用来识别变量边界  echo “im good at <code>${skil}script</code>“ ,推荐给所有变量加上花括号<code>{}</code>，这是个良好的编程习惯。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">your_name=&quot;tom&quot;</span><br><span class="line">echo $your_name</span><br><span class="line">your_name=&quot;alibaba&quot;</span><br><span class="line">echo $your_name</span><br></pre></td></tr></table></figure>
+<p><strong>花括号 {} 用来识别变量边界  echo “im good at <code>${skil}script</code>“ ,推荐给所有变量加上花括号<code>{}</code>，这是个良好的编程习惯。</strong></p>
 <h5 id="只读变量-readonly"><a href="#只读变量-readonly" class="headerlink" title="只读变量 readonly"></a>只读变量 readonly</h5><p>只读变量的值不能被改变</p>
-<h5 id="删除变量-unset"><a href="#删除变量-unset" class="headerlink" title="删除变量 unset"></a>删除变量 unset</h5><h5 id="shell-格式"><a href="#shell-格式" class="headerlink" title="shell 格式"></a>shell 格式</h5><pre><code>- [19:00:08]hjf@ubuntu:~/Desktop$
-    - 启动shell的用户名为 hjf
-    - 当地本机名称：localhost
-    - 当前目录 **~** 是主目录的简写表示法
-- shell通过 **PS1** 和 **PS2** 两个环境变量来控制提示符格式：
-    - PS1 控制最外层命令行的提示符格式
-    - PS2 控制第二层命令行的格式
-</code></pre><table>
+<h5 id="删除变量-unset"><a href="#删除变量-unset" class="headerlink" title="删除变量 unset"></a>删除变量 unset</h5><h5 id="shell-格式"><a href="#shell-格式" class="headerlink" title="shell 格式"></a>shell 格式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- [19:00:08]hjf@ubuntu:~/Desktop$</span><br><span class="line">- 启动shell的用户名为 hjf</span><br><span class="line">- 当地本机名称：localhost</span><br><span class="line">- 当前目录 **~** 是主目录的简写表示法</span><br><span class="line">- shell通过 **PS1** 和 **PS2** 两个环境变量来控制提示符格式：</span><br><span class="line">- PS1 控制最外层命令行的提示符格式</span><br><span class="line">- PS2 控制第二层命令行的格式</span><br></pre></td></tr></table></figure>
+<table>
 <thead>
 <tr>
 <th style="text-align:center">字符</th>
@@ -407,7 +397,7 @@ echo $your_name
 <p>1) 由单引号’ ‘包围的字符串：<br>任何字符都会原样输出，在其中使用变量是无效的。<br>字符串中不能出现单引号，即使对单引号进行转义也不行。</p>
 <p>2) 由双引号” “包围的字符串：<br>如果其中包含了某个变量，那么该变量会被解析（得到该变量的值），而不是原样输出。字符串中可以出现双引号，只要它被转义了就行。</p>
 <p>3) 不被引号包围的字符串<br>不被引号包围的字符串中出现变量时也会被解析，这一点和双引号” “包围的字符串一样。字符串中不能出现空格，否则空格后边的会作为其他变量或者字符串解析。</p>
-<p>获取字符串长度 <code>{</code>#string<code>}</code></p>
+<p>获取字符串长度 <code>{ # string}</code></p>
 <hr>
 <p><strong>参考资料</strong></p>
 <p><a href="http://c.biancheng.net&quot;shell编程&quot;" target="_blank" rel="noopener">shell编程</a></p>
@@ -706,7 +696,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+                <a href="javascript:void(0)" class="js-tag color2">= 共享管道</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -730,6 +720,26 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码泄露</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">漏洞复现</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ssh爆破</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sudo 权限</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RCE</a>
               </li>
              
@@ -742,6 +752,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">newbugku</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">nmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -750,15 +768,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码泄露</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">newbugku</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">nmap</a>
+                <a href="javascript:void(0)" class="js-tag color5">魔术方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,15 +780,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">魔术方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">os</a>
+                <a href="javascript:void(0)" class="js-tag color4">域环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -790,7 +792,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">域环境</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">os</a>
               </li>
              
               <li class="article-tag-list-item">

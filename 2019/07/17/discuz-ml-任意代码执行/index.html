@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://geekforfree.github.io">
   <title>discuz ml 任意代码执行 | 懒羊羊的肥宅乐园</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介Discuz！ML是一个由CodersClub.org创建的多语言，集成，功能齐全的开源网络平台，用于构建像“社交网络”这样的互联网社区。 代码浅析查看代码，跟踪DISCUZ_ROOT ，根据上面代码引入，require &amp;#39;./source/class/class_core.php&amp;#39;;12require DISCUZ_ROOT.&apos;./source/function/functi">
+  <meta name="description" content="简介Discuz！ML是一个由CodersClub.org创建的多语言，集成，功能齐全的开源网络平台，用于构建像“社交网络”这样的互联网社区。 二次修改看了下大佬和alpha实验室的大佬写的文章之后，我自愧不如，还有挺多细节没写清楚，决定改改，按照大佬的思路再修改自己的文章，添加其中忽略的细节。 代码浅析查看代码，跟踪DISCUZ_ROOT ，根据上面代码引入，require &amp;#39;./sou">
 <meta name="keywords" content="RCE,代码审计,discuz ml">
 <meta property="og:type" content="article">
 <meta property="og:title" content="discuz ml 任意代码执行">
 <meta property="og:url" content="http://geekforfree.github.io/2019/07/17/discuz-ml-任意代码执行/index.html">
 <meta property="og:site_name" content="懒羊羊的肥宅乐园">
-<meta property="og:description" content="简介Discuz！ML是一个由CodersClub.org创建的多语言，集成，功能齐全的开源网络平台，用于构建像“社交网络”这样的互联网社区。 代码浅析查看代码，跟踪DISCUZ_ROOT ，根据上面代码引入，require &amp;#39;./source/class/class_core.php&amp;#39;;12require DISCUZ_ROOT.&apos;./source/function/functi">
+<meta property="og:description" content="简介Discuz！ML是一个由CodersClub.org创建的多语言，集成，功能齐全的开源网络平台，用于构建像“社交网络”这样的互联网社区。 二次修改看了下大佬和alpha实验室的大佬写的文章之后，我自愧不如，还有挺多细节没写清楚，决定改改，按照大佬的思路再修改自己的文章，添加其中忽略的细节。 代码浅析查看代码，跟踪DISCUZ_ROOT ，根据上面代码引入，require &amp;#39;./sou">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/9NxWKxH.png">
 <meta property="og:image" content="https://i.imgur.com/xlU9qfe.png">
@@ -22,6 +22,9 @@
 <meta property="og:image" content="https://i.imgur.com/16IlqNI.png">
 <meta property="og:image" content="https://i.imgur.com/ImlBLgs.png">
 <meta property="og:image" content="https://i.imgur.com/Bnt0LHu.png">
+<meta property="og:image" content="https://i.imgur.com/uDtnkUl.png">
+<meta property="og:image" content="https://i.imgur.com/gv3HFde.png">
+<meta property="og:image" content="https://i.imgur.com/iIRnTFz.png">
 <meta property="og:image" content="https://i.imgur.com/6WegR2v.png">
 <meta property="og:image" content="https://i.imgur.com/xokCSuz.png">
 <meta property="og:image" content="https://i.imgur.com/rCo6YSS.png">
@@ -31,10 +34,10 @@
 <meta property="og:image" content="https://i.imgur.com/ic3BpMK.png">
 <meta property="og:image" content="https://i.imgur.com/kIXGrM3.png">
 <meta property="og:image" content="https://i.imgur.com/v9zTJaG.png">
-<meta property="og:updated_time" content="2019-07-17T04:58:33.793Z">
+<meta property="og:updated_time" content="2019-07-28T15:04:13.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="discuz ml 任意代码执行">
-<meta name="twitter:description" content="简介Discuz！ML是一个由CodersClub.org创建的多语言，集成，功能齐全的开源网络平台，用于构建像“社交网络”这样的互联网社区。 代码浅析查看代码，跟踪DISCUZ_ROOT ，根据上面代码引入，require &amp;#39;./source/class/class_core.php&amp;#39;;12require DISCUZ_ROOT.&apos;./source/function/functi">
+<meta name="twitter:description" content="简介Discuz！ML是一个由CodersClub.org创建的多语言，集成，功能齐全的开源网络平台，用于构建像“社交网络”这样的互联网社区。 二次修改看了下大佬和alpha实验室的大佬写的文章之后，我自愧不如，还有挺多细节没写清楚，决定改改，按照大佬的思路再修改自己的文章，添加其中忽略的细节。 代码浅析查看代码，跟踪DISCUZ_ROOT ，根据上面代码引入，require &amp;#39;./sou">
 <meta name="twitter:image" content="https://i.imgur.com/9NxWKxH.png">
   
     <link rel="alternative" href="/atom.xml" title="懒羊羊的肥宅乐园" type="application/atom+xml">
@@ -230,8 +233,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Discuz！ML是一个由CodersClub.org创建的多语言，集成，功能齐全的开源网络平台，用于构建像“社交网络”这样的互联网社区。</p>
-<h3 id="代码浅析"><a href="#代码浅析" class="headerlink" title="代码浅析"></a>代码浅析</h3><p>查看代码，跟踪<code>DISCUZ_ROOT</code> ，根据上面代码引入，<code>require &#39;./source/class/class_core.php&#39;;</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> DISCUZ_ROOT.<span class="string">'./source/function/function_home.php'</span>;</span><br><span class="line"><span class="keyword">require</span> DISCUZ_ROOT.<span class="string">'./source/function/function_portal.php'</span>;</span><br></pre></td></tr></table></figure></p>
+<p><strong>二次修改</strong><br>看了下大佬和alpha实验室的大佬写的文章之后，我自愧不如，还有挺多细节没写清楚，决定改改，按照大佬的思路再修改自己的文章，添加其中忽略的细节。</p>
+<h3 id="代码浅析"><a href="#代码浅析" class="headerlink" title="代码浅析"></a>代码浅析</h3><p>查看代码，跟踪<code>DISCUZ_ROOT</code> ，根据上面代码引入，<code>require &#39;./source/class/class_core.php&#39;;</code></p>
 <a id="more"></a>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> DISCUZ_ROOT.<span class="string">'./source/function/function_home.php'</span>;</span><br><span class="line"><span class="keyword">require</span> DISCUZ_ROOT.<span class="string">'./source/function/function_portal.php'</span>;</span><br></pre></td></tr></table></figure>
 <p>所以，我们跟进的是<code>class_core.php</code> 里面的<code>DISCUZ_ROOT</code></p>
 <p><img src="https://i.imgur.com/9NxWKxH.png" alt="1"></p>
 <p><code>DISCUZ_ROOT</code>  是当前目录，引入当前目录的<code>/source/function/function_home.php /source/function/function_portal.php</code></p>
@@ -239,13 +244,24 @@
 <p><img src="https://i.imgur.com/xlU9qfe.png" alt="2"><br><img src="https://i.imgur.com/nm6ietF.png" alt="3"></p>
 <p><img src="https://i.imgur.com/16IlqNI.png" alt="4"></p>
 <p><img src="https://i.imgur.com/ImlBLgs.png" alt="5"></p>
-<p>来到最后一行，<code>require_once</code> 引用通过<code>libfile</code> 函数对路径拼接并检查后的文件<br>这里拼接过后是<code>protal_index.php</code> ，所以我们再去分析<code>protal_index.php</code><br>在<code>protal_index.php</code>中，引用了<code>template</code> 动态生成模板。<br><img src="https://i.imgur.com/Bnt0LHu.png" alt="6"></p>
-<p>在<code>function_core的tample</code> 函数里，跟踪<code>DISCUZ_LANG</code> 这个常量值<br><img src="https://i.imgur.com/6WegR2v.png" alt="7"></p>
-<p>在<code>function_application</code>中，发现<code>DISCUZ_LANG</code>是由<code>$lng</code>这个变量定义的，然后在这个文件中搜索<code>$lng</code><br><img src="https://i.imgur.com/xokCSuz.png" alt="8"><br>搜索到<code>$lng</code> 的起源，原来是通过<code>cookie</code> 赋值的，并且，cookie中的<code>lng</code> 没有过滤，所以可控点在<code>cookie</code>的<code>language</code>中。<br><img src="https://i.imgur.com/rCo6YSS.png" alt="9"><br>再回来，看看拼接的地方<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cachefile = <span class="string">'./data/template/'</span>.DISCUZ_LANG.<span class="string">'_'</span>.(defined(<span class="string">'STYLEID'</span>) ? STYLEID.<span class="string">'_'</span> : <span class="string">'_'</span>).$templateid.<span class="string">'_'</span>.str_replace(<span class="string">'/'</span>, <span class="string">'_'</span>, $file).<span class="string">'.tpl.php'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>来到最后一行，<code>require_once</code> 引用通过<code>libfile</code> 函数对路径拼接并检查后的文件<br>这里拼接过后是<code>protal_index.php</code> ，所以我们再去分析<code>protal_index.php</code><br>在<code>protal_index.php</code>中，引用了<code>template</code> 动态修改模板。</p>
+<p><img src="https://i.imgur.com/Bnt0LHu.png" alt="6"></p>
+<p>刚开始程序会读取相应的模板</p>
+<p><img src="https://i.imgur.com/uDtnkUl.png" alt></p>
+<p>然后通过正则表达式替换修改模板，并且写文件</p>
+<p><img src="https://i.imgur.com/gv3HFde.png" alt></p>
+<p><img src="https://i.imgur.com/iIRnTFz.png" alt></p>
+<p>在<code>function_core的tample</code> 函数里，跟踪<code>DISCUZ_LANG</code> 这个常量值</p>
+<p><img src="https://i.imgur.com/6WegR2v.png" alt="7"></p>
+<p>在<code>discuz_application.php</code>中，发现<code>DISCUZ_LANG</code>是由<code>$lng</code>这个变量定义的，然后在这个文件中搜索<code>$lng</code></p>
+<p><img src="https://i.imgur.com/xokCSuz.png" alt="8"></p>
+<p>搜索到<code>$lng</code> 的起源，原来是通过<code>cookie</code> 赋值的，并且，<code>cookie</code>中的<code>lng</code> 没有过滤，所以可控点在<code>cookie</code>的<code>language</code>中。</p>
+<p><img src="https://i.imgur.com/rCo6YSS.png" alt="9"></p>
+<p>再回来，看看拼接的地方<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cachefile = <span class="string">'./data/template/'</span>.DISCUZ_LANG.<span class="string">'_'</span>.(defined(<span class="string">'STYLEID'</span>) ? STYLEID.<span class="string">'_'</span> : <span class="string">'_'</span>).$templateid.<span class="string">'_'</span>.str_replace(<span class="string">'/'</span>, <span class="string">'_'</span>, $file).<span class="string">'.tpl.php'</span>;</span><br></pre></td></tr></table></figure></p>
 <p>生成的缓存文件，互相引用，<code>include template()</code> 生成其他的缓存文件<br><img src="https://i.imgur.com/h9mQhqF.png" alt="10"><br><img src="https://i.imgur.com/dMmGRPW.png" alt="11"><br><img src="https://i.imgur.com/NX7Yj9C.png" alt="12"><br><img src="https://i.imgur.com/ic3BpMK.png" alt="13"><br>在<code>sc&#39;.system(&#39;dir&#39;).&#39;__common_header_portal_index.tpl.php</code>中的第3、4、5行，发现构造的恶意代码<code>system(&#39;dir&#39;)</code> 被执行。<br><img src="https://i.imgur.com/kIXGrM3.png" alt="14"><br><img src="https://i.imgur.com/v9zTJaG.png" alt="15"></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在复现这个代码漏洞时，一直想不懂他这个命令是怎么被解析的，找了半天才找到解析的地方(太菜了orz<br>复现的过程中，再代入，如果是我审计这个代码的时候，我会怎么入手，跟踪<code>DISCUZ_ROOT、DISCUZ_LANG</code> 虽然有点马后炮，但是代码审计跟踪变量也是正常的思路</p>
 <p>上面解析代码的地方应该是没有把缓存文件创建成功的。<br>最后，最重要的是，漏洞点应该是<code>include temlate</code> 这个地方，因为<code>template</code>函数里拼接字符串的变量没有做想过的过滤。</p>
-<h3 id="修复建议"><a href="#修复建议" class="headerlink" title="修复建议"></a>修复建议</h3><p>个人觉得对<code>$lng</code> 变量做相关过滤就行了，这里就不给出过于详细的代码（专注力渐渐失去</p>
+<h3 id="修复建议"><a href="#修复建议" class="headerlink" title="修复建议"></a>修复建议</h3><p>个人觉得对<code>$lng</code> 变量做相关过滤就行了，这里就给出过于详细的代码（专注力渐渐失去</p>
 <blockquote>
 <p><a href="https://www.anquanke.com/post/id/181887" target="_blank" rel="noopener">https://www.anquanke.com/post/id/181887</a><br><a href="https://www.4hou.com/vulnerable/19183.html" target="_blank" rel="noopener">https://www.4hou.com/vulnerable/19183.html</a></p>
 </blockquote>
@@ -350,6 +366,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/07/25/IPC-共享命名管道/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          IPC$ 共享命名管道
+        
+      </div>
+    </a>
   
   
     <a href="/2019/07/01/java-序列化与反序列化-初识/" id="article-nav-older" class="article-nav-link-wrap">
@@ -539,7 +564,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+                <a href="javascript:void(0)" class="js-tag color2">= 共享管道</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,6 +588,26 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码泄露</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">漏洞复现</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ssh爆破</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sudo 权限</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RCE</a>
               </li>
              
@@ -575,6 +620,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">newbugku</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">nmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -583,15 +636,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码泄露</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">newbugku</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">nmap</a>
+                <a href="javascript:void(0)" class="js-tag color5">魔术方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,15 +648,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">魔术方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">os</a>
+                <a href="javascript:void(0)" class="js-tag color4">域环境</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,7 +660,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">域环境</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">os</a>
               </li>
              
               <li class="article-tag-list-item">
